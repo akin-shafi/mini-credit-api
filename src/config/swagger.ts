@@ -5,7 +5,8 @@ import jwt from "jsonwebtoken";
 
 export const setupSwagger = (app: Express) => {
   const secret = process.env.JWT_SECRET || "supersecret";
-
+  const baseUrl = process.env.baseUrl || "http://localhost";
+  const PORT = process.env.PORT || "5000";
   // Example JWTs for seeded users
   const adminToken = jwt.sign(
     { id: 1, email: "admin@test.com", role: "admin" },
@@ -26,7 +27,7 @@ export const setupSwagger = (app: Express) => {
         version: "1.0.0",
         description: "API documentation for the Mini Credit Insights Service",
       },
-      servers: [{ url: "http://localhost:3000/api" }],
+      servers: [{ url: `${baseUrl}:${PORT}/api` }],
       components: {
         securitySchemes: {
           bearerAuth: {
