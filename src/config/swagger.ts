@@ -9,7 +9,6 @@ export const setupSwagger = (app: Express) => {
     process.env.NODE_ENV === "development"
       ? "http://localhost:5000"
       : process.env.baseUrl;
-  // const PORT = process.env.PORT || "5000";
   // Example JWTs for seeded users
   const adminToken = jwt.sign(
     { id: 1, email: "admin@test.com", role: "admin" },
