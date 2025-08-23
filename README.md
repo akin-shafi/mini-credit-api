@@ -221,6 +221,31 @@ This project is structured to consume a real Bureau API (e.g., Zeeh Africa Credi
 - Set `BUREAU_API_URL` and `BUREAU_API_KEY` in `.env` to connect.
 - By default, if not configured, the service falls back to a mock Bureau response for local testing.
 
+## Test Data
+
+A sample bank statement CSV is provided in the `test-data` folder:
+
+You can use this file to quickly test the **CSV ingestion endpoint**:
+
+```bash
+curl -X POST http://localhost:3000/api/statements/upload \
+  -F "file=@test-data/sample_statement.csv"
+```
+
+After uploading, you can run insights:
+
+curl -X POST http://localhost:3000/api/insights/run \
+ -H "Content-Type: application/json" \
+ -d '{"userId": 1}'
+
+---
+
+And retrieve them:
+
+curl http://localhost:3000/api/insights/1
+
+---
+
 ## 👨‍💻 Author
 
 Developed as a take-home project by Shafi Akinropo.
