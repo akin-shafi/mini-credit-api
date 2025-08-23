@@ -1,0 +1,53 @@
+# version: "3.9"
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: creditdb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "localhost",
+          "-u",
+          "user",
+          "--password=password",
+        ]
+      interval: 5s
+      timeout: 10s
+      retries: 5
+
+  api:
+    build: .
+    command: npm run start # ✅ use ts-node-dev for hot reload
+    volumes:
+      - ./src:/app/src # mount source code
+      - ./package.json:/app/package.json
+      - ./tsconfig.json:/app/tsconfig.json
+      - ./nodemon.json:/app/nodemon.json # if you use nodemon
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: user
+      DB_PASSWORD: password
+      DB_NAME: creditdb
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
