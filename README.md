@@ -223,4 +223,4 @@ This project is structured to consume a real Bureau API (e.g., Zeeh Africa Credi
 
 ## 👨‍💻 Author
 
-Developed as a take-home project.
+Developed as a take-home project by Shafi Akinropo.

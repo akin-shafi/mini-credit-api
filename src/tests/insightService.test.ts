@@ -1,6 +1,6 @@
-import { compute } from "../src/services/insightService";
-import { Insight } from "../src/entities/Insight";
-import { Transaction } from "../src/entities/Transaction";
+import { compute } from "../services/insightService";
+import { Insight } from "../entities/Insight";
+import { Transaction } from "../entities/Transaction";
 
 jest.mock("../src/config/db", () => ({
   AppDataSource: {
