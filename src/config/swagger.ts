@@ -5,7 +5,6 @@ import jwt from "jsonwebtoken";
 
 export const setupSwagger = (app: Express) => {
   const secret = process.env.JWT_SECRET || "supersecret";
-  // cost Node_env
   const PORT = process.env.PORT || 3000;
   const HOST = process.env.BASE_URL || "http://localhost";
   const BASE_URL = process.env.NODE_ENV === "live" ? HOST : `${HOST}:${PORT}`;
