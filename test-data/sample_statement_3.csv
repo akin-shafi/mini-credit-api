@@ -1,0 +1,12 @@
+Date,Description,Amount,Balance
+2025-03-01,Salary Payment,2500.0,2500.0
+2025-03-03,Supermarket Purchase,-300.0,2200.0
+2025-03-05,Zero Adjustment,0.0,2200.0
+2025-03-07,,-50.0,2150.0
+2025-03-10,Rent Bill,-1000.0,1150.0
+2025-03-12,ATM Withdrawal,-200.0,950.0
+2025-03-15,Bonus Income,500.0,1450.0
+2025-03-18,Utility Bill,-250.0,1200.0
+2025-03-20,Restaurant,-120.0,1080.0
+2025-03-25,Overdraft Fee,-100.0,980.0
+2025-03-28,Salary Payment,2500.0,3480.0

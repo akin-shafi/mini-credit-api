@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 const HOST = process.env.BASE_URL || "http://localhost";
 const BASE_URL = `${HOST}:${PORT}`;
 
-AppDataSource.initialize()
+AppDataSource.initialize() 
   .then(async () => {
     console.log("✅ Database connected");
 
